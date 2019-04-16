@@ -9,12 +9,6 @@ else
     INPLACE_SED="sed -i"
 fi
 
-# mapd-core v 4.5.0 (or older) hardcodes /usr/bin/java. Grab
-# Calcite.cpp with a fix
-# (https://github.com/omnisci/mapd-core/pull/316) from a repo:
-# wget https://raw.githubusercontent.com/omnisci/mapd-core/7c1faa09dd88d0cc735b629048f74d71baa9179f/Calcite/Calcite.cpp
-# mv Calcite.cpp Calcite/
-
 # conda build cannot find boost libraries from
 # ThirdParty/lib. Actually, moving environment boost libraries to
 # ThirdParty/lib does not make much sense. The following is just a
