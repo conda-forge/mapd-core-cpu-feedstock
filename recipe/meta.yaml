@@ -11,12 +11,12 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: True  # [not linux]
+  number: 1
+  skip: True  # [win]
 
 requirements:
   build:
-    - {{ compiler('cxx') }}   # required for C++ headers
+    - {{ compiler('cxx') }}   # [linux] required for C++ headers
     - cmake
     - make
     - maven
@@ -26,9 +26,9 @@ requirements:
     - go
     - bisonpp
   host:
-    - snappy  # required for mapd-core > 4.5.0
+    - snappy
     - arrow-cpp 0.12.*
-    - blosc
+    - blosc   # [linux]
     - boost-cpp >=1.68
     - double-conversion
     - libgdal
@@ -36,13 +36,13 @@ requirements:
     - gflags
     - glog
     - libarchive
-    - libkml
+    - libkml   # [linux]
     - libpng
     - llvmdev 7.*
-    - openssl
+    - openssl  # [linux]
     - parquet-cpp
     - thrift-cpp >=0.11.0
-    - ncurses
+    - ncurses  # [linux]
   run:
     - boost-cpp >=1.68
     - libgdal
@@ -53,6 +53,10 @@ requirements:
     - xz
     - bzip2
     - zlib
+    - thrift-cpp >=0.11.0
+    - double-conversion
+    - snappy
+    - libcxx   # [osx]
 about:
   home: https://www.mapd.com/
   license: Apache-2.0
