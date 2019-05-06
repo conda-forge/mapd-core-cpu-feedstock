@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [not linux]
 
 requirements:
@@ -44,7 +44,9 @@ requirements:
     - thrift-cpp >=0.11.0
     - ncurses
   run:
+    - snappy  # required for mapd-core > 4.5.0
     - boost-cpp >=1.68
+    - double-conversion
     - libgdal
     - glog
     - gflags
